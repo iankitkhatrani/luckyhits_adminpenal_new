@@ -1,4 +1,4 @@
-import BotUpdate from "../../component/botUpdate";
+import BotUpdate from "../../component/BotUpdate";
 
 function botUpdateinfo() {
   return (
