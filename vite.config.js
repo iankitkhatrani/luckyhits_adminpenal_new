@@ -44,4 +44,8 @@ const pwaConfig = {
 export default defineConfig({
   basename: "/",
   plugins: [react(), VitePWA(pwaConfig)],
+  server:{
+    host:true,
+    port:80
+  }
 });
