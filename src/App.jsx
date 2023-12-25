@@ -29,10 +29,10 @@ function App() {
     console.log("Location ",window.location)
     console.log("window.location.href ",window.location.href)
 
-    var url = window.location.href.split("5173")
+    var url = window.location.href.split("/")
     console.log("URL ",url)
 
-    if(url[1] != "/signin"){
+    if(url[1] != "signin"){
       window.location.href = 'http://51.20.117.194/signin';
       return false
     }
