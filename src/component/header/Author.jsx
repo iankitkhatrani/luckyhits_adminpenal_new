@@ -1,5 +1,7 @@
 import profile from "../../assets/images/avatar/profile-52x52.png";
 import ProtoTypes from "prop-types";
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function Author({ showProfile }) {
   return (
@@ -13,7 +15,7 @@ function Author({ showProfile }) {
       <div className="hidden 2xl:block">
         <div className="flex items-center space-x-2.5">
           <h3 className="text-base font-bold leading-[28px] text-bgray-900 dark:text-white">
-            John Doe
+          {cookies.get('email')}
           </h3>
           <span>
             <svg
@@ -34,7 +36,7 @@ function Author({ showProfile }) {
           </span>
         </div>
         <p className="text-sm font-medium leading-[20px] text-bgray-600 dark:text-bgray-50">
-          Super Admin
+        {cookies.get('name')}
         </p>
       </div>
     </div>

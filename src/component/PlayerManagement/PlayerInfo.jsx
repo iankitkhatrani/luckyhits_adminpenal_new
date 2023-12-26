@@ -64,6 +64,7 @@ function PlayerInfo({ UserId,UserName,MobileNo,GamePlay,MainWallet,RegistrationD
           "border-radius": "4px"}} onClick={ () => navigateToContacts(UserId,img,UserName,GamePlay,MainWallet,Status) } >
           <img style={{"width": "15px","height": "15px"}} src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png" />
         </button>
+        
         <button styles={{"margin": "1px",
         "background-color": "white",
         "color": "white",

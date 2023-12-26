@@ -5,6 +5,8 @@ import profile from "../../assets/images/avatar/profile-52x52.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ResProfilePopup from "./ResProfilePopup";
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 function HeaderTwo({ handleSidebar }) {
   const [activePopup, handleActivePopup] = useState(false);
@@ -59,7 +61,7 @@ function HeaderTwo({ handleSidebar }) {
               <div className="hidden 2xl:block">
                 <div className="flex items-center space-x-2.5">
                   <h3 className="text-base font-bold leading-[28px] text-bgray-900">
-                    John Doe
+                  {cookies.get('email')}
                   </h3>
                   <span>
                     <svg
@@ -80,7 +82,7 @@ function HeaderTwo({ handleSidebar }) {
                   </span>
                 </div>
                 <p className="text-sm font-medium leading-[20px] text-bgray-600">
-                  Super Admin
+                {cookies.get('name')}
                 </p>
               </div>
             </div>

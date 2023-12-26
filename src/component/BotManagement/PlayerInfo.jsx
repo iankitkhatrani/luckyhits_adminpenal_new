@@ -24,12 +24,7 @@ function PlayerInfo({ UserId,img,UserName,GamePlay,MainWallet,Status}) {
     setUserData(await BotList())
   }
 
-  const navigateToUserRegister = (userid) => {
-    // 👇️ navigate to /contacts 
-    console.log("User ID ",userid)
 
-    //navigate('/botregistration',{state:1});
-  };
 
   return (
     <tr className="border-b border-bgray-300 dark:border-darkblack-400">

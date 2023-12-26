@@ -8,6 +8,9 @@ import ProfilePopup from "./ProfilePopup";
 import StorePopUp from "./StorePopUp";
 import ToggleBtn from "./ToggleBtn";
 import ModeToggler from "./ModeToggler";
+
+
+
 function HeaderOne({ handleSidebar }) {
   const [popup, setPopup] = useState(false);
 
@@ -15,6 +18,10 @@ function HeaderOne({ handleSidebar }) {
     setPopup({ [name]: popup?.[name] ? false : true });
   };
 
+  console.log("Location ",window.location)
+    console.log("window.location.href ",window.location)
+
+  
   return (
     <header className="header-wrapper fixed z-30 hidden w-full md:block">
       <div className="relative flex h-[108px] w-full items-center justify-between bg-white px-10 dark:bg-darkblack-600 2xl:px-[76px]">
@@ -50,10 +57,12 @@ function HeaderOne({ handleSidebar }) {
         {/* page-title */}
         <div>
           <h3 className="text-xl font-bold text-bgray-900 dark:text-bgray-50 lg:text-3xl lg:leading-[36.4px]">
-            Dashboard
+            
+             {/*Dashboard*/}
           </h3>
           <p className="text-xs font-medium text-bgray-600 dark:text-bgray-50 lg:text-sm lg:leading-[25.2px]">
-            Let’s check your update today
+            {/*Let’s check your update today*/}
+            {}
           </p>
         </div>
         {/* search-bar */}

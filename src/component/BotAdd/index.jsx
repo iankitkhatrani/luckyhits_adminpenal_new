@@ -3,14 +3,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import React, { useState, useContext, useEffect } from 'react';
 import offerContext from '../../context/offerContext';
 
-function botUpdate() {
-
+function botAddinfo() {
+console.log("HRLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
   const location = useLocation();
   //console.log("location ", location.state)
-  const Botinfo = location.state;
-
+ 
   const context = useContext(offerContext)
-  const { BotUpdate, UploadProfile, host } = context
+  const { BotAdd, UploadProfile, host } = context
 
   
   const navigate = useNavigate();
@@ -20,25 +19,25 @@ function botUpdate() {
   };
 
   let [userInfo, SetuserInfo] = useState({
-    userId: Botinfo.UserId,
-    username: "",
+    name: "",
     profileUrl: "",
-    status: ""
+    status: "",
+    country:"india"
   })
 
-  useEffect(() => {
+//   useEffect(() => {
         
-    const submitdata = async () => {
-        SetuserInfo({
-          userId: Botinfo.UserId,
-          username: Botinfo.UserName,
-          profileUrl: Botinfo.img,
-          status: Botinfo.Status
-        })
+//     const submitdata = async () => {
+//         SetuserInfo({
+//           name: Botinfo.UserName,
+//           profileUrl: Botinfo.img,
+//           status: Botinfo.Status,
+//           country:"india"
+//         })
         
-    }
-    submitdata()
-},[]);
+//     }
+//     submitdata()
+// },[]);
 
   const OnChange = (event) => {
     let { name, value } = event.target;
@@ -92,11 +91,11 @@ function botUpdate() {
 
     console.log("userInfo ",userInfo)
 
-    let res = await BotUpdate(userInfo)
+    let res = await BotAdd(userInfo)
 
     console.log("REsponce ::::::::::::::::::::::",res)
 
-    if(res.status == "ok"){
+    if(res.status == 200){
         navigateToContacts()
     }else{
         alert("Error Please enter")
@@ -109,7 +108,7 @@ function botUpdate() {
     <div className="w-full rounded-lg bg-white px-[24px] py-[20px] dark:bg-darkblack-600">
       <div className="flex flex-col space-y-5">
         <h3 className="text-2xl font-bold pb-5 text-bgray-900 dark:text-white dark:border-darkblack-400 border-b border-bgray-200">
-          Bot Updation
+            Bot Registration
         </h3>
         <div className="mt-8">
           <form action="">
@@ -125,9 +124,9 @@ function botUpdate() {
 
                 <input
                   type="text"
-                  id="username"
-                  placeholder={Botinfo.UserName}
-                  name="username"
+                  id="name"
+                  placeholder="Please Insert Name"
+                  name="name"
                   className="bg-bgray-50 dark:bg-darkblack-500 dark:text-white p-4 rounded-lg h-14 border-0 focus:border focus:border-success-300 focus:ring-0"
                   onChange={handleChange}
                   />
@@ -205,4 +204,4 @@ function botUpdate() {
 }
 
 
-export default botUpdate;
+export default botAddinfo;

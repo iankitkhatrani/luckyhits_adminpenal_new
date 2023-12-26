@@ -3,7 +3,7 @@ import ProtoTypes from "prop-types";
 import CustomerInfo from "./PlayerInfo";
 import users from "../../data/user";
 import offerContext from '../../context/offerContext';
-
+import {useNavigate} from 'react-router-dom';
 
 function PlayerTab({ }) {
 
@@ -20,8 +20,6 @@ function PlayerTab({ }) {
     setActive(!active)
   }
   //------------------------------------------------------------------------------------------------------------
-
-
   let [userData,setUserData] = useState([]);
 
   const context = useContext(offerContext)
@@ -34,6 +32,10 @@ function PlayerTab({ }) {
   submitdata()
   },[]);
 
+  const navigate = useNavigate();
+  const navigateToUserRegister = () => {
+    navigate('/botAddinfo');
+  };
   
   //--------------------------- Paggeation and No Of Pages ------------------------------------
   // Filter the user data based on date range and search term
@@ -136,7 +138,7 @@ function PlayerTab({ }) {
           className="bg-success-300 dark:bg-success-300 dark:text-bgray-900 border-2 border-transparent text-white rounded-lg px-4 py-3 font-semibold text-sm" onClick={resetDate}>Reset</button>
 
           <button aria-label="none"
-          className="bg-success-300 dark:bg-success-300 dark:text-bgray-900 border-2 border-transparent text-white rounded-lg px-4 py-3 font-semibold text-sm" onClick={() => navigateToUserRegister()} >Add User</button>
+          className="bg-success-300 dark:bg-success-300 dark:text-bgray-900 border-2 border-transparent text-white rounded-lg px-4 py-3 font-semibold text-sm" onClick={navigateToUserRegister} >Add User</button>
 
         </div>
       </div>
