@@ -16,15 +16,12 @@ function PlayerInfo({ UserId,img,UserName,GamePlay,MainWallet,Status}) {
   const context = useContext(offerContext)
   const { BotDelete,host,BotList } = context
 
-
   const DeleteUser = async (userid) =>{
     console.log("delete ::::::::::::::")
     await BotDelete(userid)
 
     setUserData(await BotList())
   }
-
-
 
   return (
     <tr className="border-b border-bgray-300 dark:border-darkblack-400">
@@ -66,7 +63,7 @@ function PlayerInfo({ UserId,img,UserName,GamePlay,MainWallet,Status}) {
             "padding": "5px 10px",
             "cursor": "pointer",
             "border-radius": "4px"}} onClick={ () => navigateToContacts(UserId,img,UserName,GamePlay,MainWallet,Status) } >
-            <img style={{"width": "15px","height": "15px"}} src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png" />
+            <img style={{"width": "15px","height": "15px","margin": "10px"}} src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png" />
           </button>
           <button styles={{"margin": "1px",
           "background-color": "white",
@@ -75,7 +72,7 @@ function PlayerInfo({ UserId,img,UserName,GamePlay,MainWallet,Status}) {
           "padding": "5px 10px",
           "cursor": "pointer",
           "border-radius": "4px"}} onClick={ () => DeleteUser(UserId) } >
-          <img style={{"width": "15px","height": "15px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewqWoGi9-fXmd6_SKqNkg6-kmo7VctpXAhgBiKaliSA&s" />
+          <img style={{"width": "15px","height": "15px","margin": "10px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewqWoGi9-fXmd6_SKqNkg6-kmo7VctpXAhgBiKaliSA&s" />
             
           </button>
         </div>

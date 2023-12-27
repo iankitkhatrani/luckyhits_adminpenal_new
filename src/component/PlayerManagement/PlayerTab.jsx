@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import ProtoTypes from "prop-types";
 import CustomerInfo from "./PlayerInfo";
 import offerContext from '../../context/offerContext';
+import {useNavigate} from 'react-router-dom';
 
 function PlayerTab({ }) {
   //-------------------------------------------------------------------------------------------------------
@@ -17,6 +18,10 @@ function PlayerTab({ }) {
     setActive(!active)
   }
   //------------------------------------------------------------------------------------------------------------
+  const navigate = useNavigate();
+  const navigateToUserRegister = () => {
+    navigate('/playeradd');
+  };
 
   let [userData, setUserData] = useState([]);
   const context = useContext(offerContext)

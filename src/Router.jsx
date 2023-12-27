@@ -39,6 +39,8 @@ import NoitceText from './pages/NoticeText'
 import NotificationList from './pages/Notification'
 import BannerList from './pages/Banner'
 import Botadd from './pages/Botadd'
+import PlayerAdd from './pages/Playeradd'
+
 
 
 
@@ -84,6 +86,10 @@ const router = createBrowserRouter([
       {
         path: "/transaction",
         element: <Transaction />,
+      },
+      {
+        path: "/playeradd",
+        element: <PlayerAdd />,
       },
       {
         path: "/depositList",

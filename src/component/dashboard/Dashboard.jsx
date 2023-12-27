@@ -22,6 +22,7 @@ function Dashboard() {
   useEffect( () => {
     const submitdata = async () => {
       apiData = await dashboardData()
+      
       if(apiData.totalUser != undefined)
       settotalUser(apiData.totalUser)
 

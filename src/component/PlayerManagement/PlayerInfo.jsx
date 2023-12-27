@@ -55,14 +55,14 @@ function PlayerInfo({ UserId,UserName,MobileNo,GamePlay,MainWallet,RegistrationD
       
       <td className="px-6 py-5 xl:px-0">
       <div className="flex justify-center">
-          <button styles={{"margin": "1px",
+        <button styles={{"margin": "1px",
           "background-color": "white",
           "color": "white",
           "border": "none",
           "padding": "5px 10px",
           "cursor": "pointer",
           "border-radius": "4px"}} onClick={ () => navigateToContacts(UserId,img,UserName,GamePlay,MainWallet,Status) } >
-          <img style={{"width": "15px","height": "15px"}} src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png" />
+          <img style={{"width": "15px","height": "15px","margin": "10px"}} src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png" />
         </button>
         
         <button styles={{"margin": "1px",
@@ -72,7 +72,7 @@ function PlayerInfo({ UserId,UserName,MobileNo,GamePlay,MainWallet,RegistrationD
         "padding": "5px 10px",
         "cursor": "pointer",
         "border-radius": "4px"}} onClick={ () => DeleteUser(UserId) } >
-        <img style={{"width": "15px","height": "15px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewqWoGi9-fXmd6_SKqNkg6-kmo7VctpXAhgBiKaliSA&s" />
+        <img style={{"width": "15px","height": "15px","margin": "10px"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewqWoGi9-fXmd6_SKqNkg6-kmo7VctpXAhgBiKaliSA&s" />
           
         </button>
       </div>
