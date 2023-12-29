@@ -96,7 +96,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -126,7 +126,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d)
@@ -155,7 +155,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(d => d)
 
@@ -184,7 +184,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -213,7 +213,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -245,7 +245,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -276,7 +276,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -303,7 +303,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -330,7 +330,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -358,7 +358,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -387,7 +387,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(data => data.json())
@@ -417,7 +417,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(data => data.json())
@@ -449,7 +449,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -477,7 +477,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -505,7 +505,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(data => data.json())
@@ -537,7 +537,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -567,7 +567,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d.json())
@@ -598,7 +598,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(d => d)
 
@@ -630,7 +630,7 @@ const OfferState = (props) => {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                        'token': token
+                        'token': cookies.get('token')
                     }
                 }).then(data => data.json())
     
@@ -662,7 +662,7 @@ const OfferState = (props) => {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                        'token': token
+                        'token': cookies.get('token')
                     },
                     body: JSON.stringify(data)
                 }).then(d => d.json())
@@ -693,7 +693,7 @@ const OfferState = (props) => {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                        'token': token
+                        'token': cookies.get('token')
                     }
                 }).then(d => d)
     
@@ -726,7 +726,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -755,7 +755,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d.json())
@@ -784,7 +784,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(d => d)
 
@@ -820,7 +820,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -850,7 +850,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d.json())
@@ -879,7 +879,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(d => d)
 
@@ -914,7 +914,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -941,7 +941,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify({ flag: data })
             }).then(d => d)
@@ -976,7 +976,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(data => data.json())
@@ -1010,7 +1010,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1039,7 +1039,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d.json())
@@ -1070,7 +1070,7 @@ const OfferState = (props) => {
             const response = await fetch(`${host}/admin/banner/BannerUpload`, {
                 method: 'POST',
                 headers: {
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: formData
             }).then(d => d.json())
@@ -1108,7 +1108,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(d => d)
 
@@ -1141,7 +1141,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1171,7 +1171,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d)
@@ -1202,7 +1202,7 @@ const OfferState = (props) => {
             const response = await fetch(`${host}/admin/bot/ProfileUpload`, {
                 method: 'POST',
                 headers: {
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: formData
             }).then(d => d.json())
@@ -1238,7 +1238,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(d => d)
 
@@ -1267,7 +1267,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1297,7 +1297,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d.json())
@@ -1331,7 +1331,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1359,7 +1359,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1387,7 +1387,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1415,7 +1415,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d)
@@ -1446,7 +1446,7 @@ const OfferState = (props) => {
             const response = await fetch(`${host}/admin/bot/ProfileUpload`, {
                 method: 'POST',
                 headers: {
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: formData
             }).then(d => d.json())
@@ -1482,7 +1482,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(d => d)
 
@@ -1511,7 +1511,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1541,7 +1541,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d.json())
@@ -1573,7 +1573,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1601,7 +1601,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1629,7 +1629,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 }
             }).then(data => data.json())
 
@@ -1659,7 +1659,7 @@ const OfferState = (props) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: JSON.stringify(data)
             }).then(d => d.json())
@@ -1690,7 +1690,7 @@ const OfferState = (props) => {
             const response = await fetch(`${host}/admin/usertransction/UploadScreenShortPayOut`, {
                 method: 'POST',
                 headers: {
-                    'token': token
+                    'token': cookies.get('token')
                 },
                 body: formData
             }).then(d => d.json())
