@@ -205,10 +205,10 @@ const OfferState = (props) => {
         }
     }
     // History 
-    const GetRouletteHistoryData = async (userId) => {
+    const GetBlackandWhiteHistoryData = async (userId) => {
         try {
             console.log("PlayerList :::::::", `${host}/admin/userhistory/UserData`, userId)
-            const response = await fetch(`${host}/admin/userhistory/rouletteHistory?userId=` + userId, {
+            const response = await fetch(`${host}/admin/userhistory/BackandWhiteHistory?userId=` + userId, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -218,14 +218,46 @@ const OfferState = (props) => {
             }).then(data => data.json())
 
             const json = response
-            console.log("data api from :GetRouletteHistoryData :::...", json)
+            console.log("data api from :GetBlackandWhiteHistoryData :::...", json)
 
             if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
                 LogoutClick()
 
                 return []
             } else {
-                return await json.rouletteHistoryData
+                return await json.BlackandWhiteData
+            }
+
+
+
+
+        } catch (e) {
+            console.log("e :", e)
+        }
+    }
+
+     // History 
+     const aviatorHistoryData = async (userId) => {
+        try {
+            console.log("PlayerList :::::::", `${host}/admin/userhistory/aviatorHistory`, userId)
+            const response = await fetch(`${host}/admin/userhistory/aviatorHistory?userId=` + userId, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'token': token
+                }
+            }).then(data => data.json())
+
+            const json = response
+            console.log("data api from :aviatorHistoryData :::...", json)
+
+            if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                LogoutClick()
+
+                return []
+            } else {
+                return await json.aviatorHistoryData
             }
 
 
@@ -249,7 +281,7 @@ const OfferState = (props) => {
             }).then(data => data.json())
 
             const json = response
-            console.log("data api from :GetRouletteHistoryData :::...", json)
+            console.log("data api from :GetCompleteWithdrawalData :::...", json)
 
             if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
                 LogoutClick()
@@ -276,7 +308,7 @@ const OfferState = (props) => {
             }).then(data => data.json())
 
             const json = response
-            console.log("data api from :GetRouletteHistoryData :::...", json)
+            console.log("data api from :GetCompleteDespositeData :::...", json)
 
             if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
                 LogoutClick()
@@ -303,7 +335,7 @@ const OfferState = (props) => {
             }).then(data => data.json())
 
             const json = response
-            console.log("data api from :GetRouletteHistoryData :::...", json)
+            console.log("data api from :GetRegisterReferralBonusData :::...", json)
 
             if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
                 LogoutClick()
@@ -331,7 +363,7 @@ const OfferState = (props) => {
             }).then(data => data.json())
 
             const json = response
-            console.log("data api from :GetRouletteHistoryData :::...", json)
+            console.log("data api from :GetMyReferralData :::...", json)
 
             if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
                 LogoutClick()
@@ -361,7 +393,7 @@ const OfferState = (props) => {
             }).then(data => data.json())
 
             const json = response
-            console.log("data api from :GetRouletteHistoryData :::...", json)
+            console.log("data api from :AddMoney :::...", json)
 
             if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
                 LogoutClick()
@@ -391,7 +423,7 @@ const OfferState = (props) => {
             }).then(data => data.json())
 
             const json = response
-            console.log("data api from :GetRouletteHistoryData :::...", json)
+            console.log("data api from :DeductMoney :::...", json)
 
             if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
                 LogoutClick()
@@ -587,6 +619,103 @@ const OfferState = (props) => {
 
     //=============================
 
+
+        //================= coin Management
+
+        const CoinsList = async () => {
+            try {
+                console.log("PlayerList :::::::", `${host}//admin/coin/coinlist`)
+                const response = await fetch(`${host}/admin/coin/coinlist`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'token': token
+                    }
+                }).then(data => data.json())
+    
+                const json = response
+    
+                if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                    LogoutClick()
+    
+                    return []
+                } else {
+                    console.log("data api from :CoinsList :::...", json.coinlist)
+
+
+                    return await json.coinlist
+                }
+    
+    
+    
+            } catch (e) {
+                console.log("e :", e)
+            }
+        }
+    
+        const CoinPackeAdd = async (data) => {
+            try {
+                console.log("PlayerList :::::::", host)
+                const response = await fetch(`${host}/admin/coin/coinadded`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'token': token
+                    },
+                    body: JSON.stringify(data)
+                }).then(d => d.json())
+    
+                const json = response
+                console.log("data api from :latatestUser :::...", json)
+    
+    
+                if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                    LogoutClick()
+    
+                    return {}
+                } else {
+                    return await json
+                }
+    
+    
+            } catch (e) {
+                console.log("e :", e)
+            }
+        }
+    
+        const DeleteCoinpack = async (socialid) => {
+            try {
+                console.log("PlayerList :::::::", host)
+                const response = await fetch(`${host}/admin/coin/coindelete/` + socialid, {
+                    method: 'delete',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'token': token
+                    }
+                }).then(d => d)
+    
+                const json = response
+                console.log("data api from :latatestUser :::...", json)
+                if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                    LogoutClick()
+    
+                    return {}
+                } else {
+                    return await json
+                }
+    
+            } catch (e) {
+                console.log("e :", e)
+            }
+        }
+    
+        //=============================
+
+        
+
     //================= Notice  List 
 
     const NoticeTextList = async () => {
@@ -678,6 +807,102 @@ const OfferState = (props) => {
     }
 
     //=============================
+
+
+
+    //================= Mail  List 
+
+    const mailList = async () => {
+        try {
+            console.log("PlayerList :::::::", `${host}//admin/mail/mailList`)
+            const response = await fetch(`${host}/admin/mail/mailList`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'token': token
+                }
+            }).then(data => data.json())
+
+            const json = response
+            console.log("data api from :latatestUser :::...", json)
+
+            if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                LogoutClick()
+
+                return []
+            } else {
+                return await json.maillist
+
+            }
+
+
+        } catch (e) {
+            console.log("e :", e)
+        }
+    }
+
+    const MailsAdd = async (data) => {
+        try {
+            console.log("PlayerList :::::::", host)
+            const response = await fetch(`${host}/admin/mail/mailInsert`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'token': token
+                },
+                body: JSON.stringify(data)
+            }).then(d => d.json())
+
+            const json = response
+            console.log("data api from :latatestUser :::...", json)
+
+            if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                LogoutClick()
+
+                return json
+            } else {
+                return await json
+            }
+
+        } catch (e) {
+            console.log("e :", e)
+        }
+    }
+
+    const DeleteMail = async (id) => {
+        try {
+            console.log("PlayerList :::::::", host)
+            const response = await fetch(`${host}/admin/mail/maildelete/` + id, {
+                method: 'delete',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'token': token
+                }
+            }).then(d => d)
+
+            const json = response
+            console.log("data api from :latatestUser :::...", json)
+
+
+            if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                LogoutClick()
+
+                return json
+            } else {
+                return await json
+            }
+
+
+        } catch (e) {
+            console.log("e :", e)
+        }
+    }
+
+    //=============================
+    
 
     //================= gamementenance  List 
 
@@ -1498,10 +1723,12 @@ const OfferState = (props) => {
         <offerContext.Provider value={{
             host,
             adminname, adminEmail, dashboardData, latatestUser, PlayerList, PlayerData,
-            PlayerAdd, PlayerDelete, BlackWhiteGameHistory, AviatorGameHistory, GameLogicSet, GetRouletteHistoryData, GetCompleteWithdrawalData,
+            PlayerAdd, PlayerDelete, BlackWhiteGameHistory, AviatorGameHistory, GameLogicSet, GetBlackandWhiteHistoryData,aviatorHistoryData, GetCompleteWithdrawalData,
             GetCompleteDespositeData, GetRegisterReferralBonusData, GetMyReferralData,
             SocailURLsList, SocailURLsAdd, DeleteSocailURLs,
+            CoinsList,CoinPackeAdd,DeleteCoinpack,
             NoticeTextList, NoticeTextLsAdd, DeleteNoticeText,
+            mailList,MailsAdd,DeleteMail,
             GetMentenance, MentenanceUpdate,
             SendPushnotification,
             BannerList, BannerAdd, DeleteBanner, UploadBanner,

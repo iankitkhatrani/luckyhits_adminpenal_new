@@ -36,7 +36,7 @@ function PlayerTab({ gameName }) {
         console.log("Black and White ")
         setGameHistoryData(await BlackWhiteGameHistory())
       }else{
-        console.log("AVIAOTR RRRRRRRRRRRRRRRRRRRRR")
+        console.log("AVIAOTR")
         setGameHistoryData(await AviatorGameHistory())
       }
   }

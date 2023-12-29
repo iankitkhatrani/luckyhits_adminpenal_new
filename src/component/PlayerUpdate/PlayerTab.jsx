@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ProtoTypes from "prop-types";
 import CustomerInfo from "./PlayerInfo";
+import users from "../../data/user";
 import offerContext from '../../context/offerContext';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-function PlayerTab({ }) {
+function PlayerTab({ UserId, gameName }) {
+
   //-------------------------------------------------------------------------------------------------------
   const [active, setActive] = useState(false);
   const [pageSize, setPageSize] = useState(5);
@@ -18,38 +20,75 @@ function PlayerTab({ }) {
     setActive(!active)
   }
   //------------------------------------------------------------------------------------------------------------
-  const navigate = useNavigate();
-  const navigateToUserRegister = () => {
-    navigate('/playeradd');
-  };
+  const location = useLocation();
+  const Botinfo = location.state;
+  console.log(" Botinfo.UserId ", Botinfo)
+  let [gameHistoryData, setGameHistoryData] = useState([]);
 
-  let [userData, setUserData] = useState([]);
   const context = useContext(offerContext)
-  const { PlayerList } = context
+  const { GetBlackandWhiteHistoryData, aviatorHistoryData, GetCompleteWithdrawalData, GetCompleteDespositeData, GetRegisterReferralBonusData } = context
+
 
   useEffect(() => {
     const submitdata = async () => {
-      setUserData(await PlayerList())
+      setGameHistoryData([])
+      // <HistoryTable gameName="AviatorGame"/>
+      // <HistoryTable gameName="BlackandWhite"/>
+      // <HistoryTable gameName="Withdrawal"/>
+      // <HistoryTable gameName="Deposit"/>
+      // <HistoryTable gameName="reffrel"/>
+      console.log("gameName ",gameName)
+      if (gameName == "AviatorGame") {
+       
+        setGameHistoryData(await aviatorHistoryData( Botinfo.UserId))
+
+        console.log("gameHistoryData ",gameHistoryData)
+
+      } else if (gameName == "BlackandWhite") {
+
+        setGameHistoryData(await GetBlackandWhiteHistoryData( Botinfo.UserId))
+      }
+      // else if(gameName == "Withdrawal"){
+
+      //   SetcompleteWithdrawal(await GetCompleteWithdrawalData())
+      // }else if(gameName == "Deposit"){
+
+      //   SetcompleteDeposite(await GetCompleteDespositeData())
+      // }else if(gameName == "reffrel"){
+
+      //   SetmyReferral(await GetMyReferralData())
+      // }
+
+      // SetrouletteHistory(await GetRouletteHistoryData(userID) )
+      // SetcompleteWithdrawal(await GetCompleteWithdrawalData(userID) )
+      // SetcompleteDeposite(await GetCompleteDespositeData(userID) )
+      // SetregisterReferralBonus(await GetRegisterReferralBonusData(userID))
+      // SetmyReferral(await GetMyReferralData(userID) )
+
+
     }
     submitdata()
-  }, []);
+  }, [gameName]);
 
   //--------------------------- Paggeation and No Of Pages ------------------------------------
   // Filter the user data based on date range and search term
-  const filteredUsers = userData.filter((user) => {
-    console.log("dddd")
-    const registrationDate = new Date(user.createdAt);
-    const from = fromDate ? new Date(fromDate) : null;
-    const to = toDate ? new Date(toDate) : null;
+  let filteredUsers = []
+  if(gameHistoryData && gameHistoryData.length > 0){
+    filteredUsers = gameHistoryData.filter((user) => {
+      console.log("User :::::::::::::::::::::::::::::::::::::::::::::",user)
+      const registrationDate = new Date(user.DateTime);
+      const from = fromDate ? new Date(fromDate) : null;
+      const to = toDate ? new Date(toDate) : null;
 
-    return (
-      (!from || registrationDate >= from) &&
-      (!to || registrationDate <= to) &&
-      (searchTerm === '' ||
-        user.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.mobileNumber.includes(searchTerm))
-    );
-  });
+      return (
+        (!from || registrationDate >= from) &&
+        (!to || registrationDate <= to) &&
+        (searchTerm === '' ||
+          user.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.PhoneNumber.includes(searchTerm))
+      );
+    });
+  }
 
   // Calculate the index range for the current page
   const startIndex = (currentPage - 1) * pageSize;
@@ -71,6 +110,7 @@ function PlayerTab({ }) {
     setToDate("")
   }
   //-----------------------------------------------------------------------------------------------
+
 
   return (
     <>
@@ -131,29 +171,21 @@ function PlayerTab({ }) {
             style={{ marginLeft: "1rem" }}
           />
           <button aria-label="none"
-          className="bg-success-300 dark:bg-success-300 dark:text-bgray-900 border-2 border-transparent text-white rounded-lg px-4 py-3 font-semibold text-sm" onClick={resetDate}>Reset</button>
+            className="bg-success-300 dark:bg-success-300 dark:text-bgray-900 border-2 border-transparent text-white rounded-lg px-4 py-3 font-semibold text-sm" onClick={resetDate}>Reset</button>
 
-          <button aria-label="none"
-          className="bg-success-300 dark:bg-success-300 dark:text-bgray-900 border-2 border-transparent text-white rounded-lg px-4 py-3 font-semibold text-sm" onClick={() => navigateToUserRegister()} >Add User</button>
 
         </div>
       </div>
+
       <div className="table-content w-full overflow-x-auto">
         <table className="w-full">
           <tbody>
             <tr className="border-b border-bgray-300 dark:border-darkblack-400">
-              <td className="">
-                <label className="text-center">
-                  <input
-                    type="checkbox"
-                    className="h-5 w-5 cursor-pointer rounded-full border border-bgray-400 bg-transparent text-success-300 focus:outline-none focus:ring-0"
-                  />
-                </label>
-              </td>
+              
               <td className="inline-block w-[250px] px-6 py-5 lg:w-auto xl:px-0">
                 <div className="flex w-full items-center space-x-2.5">
                   <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Player Name
+                    Date Time
                   </span>
                   <span>
                     <svg
@@ -198,7 +230,7 @@ function PlayerTab({ }) {
               <td className="px-6 py-5 xl:px-0">
                 <div className="flex w-full items-center space-x-2.5">
                   <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Mobile Number
+                    Name
                   </span>
                   <span>
                     <svg
@@ -243,97 +275,7 @@ function PlayerTab({ }) {
               <td className="px-6 py-5 xl:px-0">
                 <div className="flex items-center space-x-2.5">
                   <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Aviator GamePlay
-                  </span>
-                  <span>
-                    <svg
-                      width="14"
-                      height="15"
-                      viewBox="0 0 14 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.332 1.31567V13.3157"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M5.66602 11.3157L3.66602 13.3157L1.66602 11.3157"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3.66602 13.3157V1.31567"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12.332 3.31567L10.332 1.31567L8.33203 3.31567"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </td>
-              <td className="px-6 py-5 xl:px-0">
-              <div className="flex items-center space-x-2.5">
-                <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                  Black and White GamePlay
-                </span>
-                <span>
-                  <svg
-                    width="14"
-                    height="15"
-                    viewBox="0 0 14 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.332 1.31567V13.3157"
-                      stroke="#718096"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M5.66602 11.3157L3.66602 13.3157L1.66602 11.3157"
-                      stroke="#718096"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M3.66602 13.3157V1.31567"
-                      stroke="#718096"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M12.332 3.31567L10.332 1.31567L8.33203 3.31567"
-                      stroke="#718096"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </div>
-              </td>
-              <td className="w-[165px] px-6 py-5 xl:px-0">
-                <div className="flex w-full items-center space-x-2.5">
-                  <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Main Wallet
+                    Mobile Number
                   </span>
                   <span>
                     <svg
@@ -378,7 +320,7 @@ function PlayerTab({ }) {
               <td className="w-[165px] px-6 py-5 xl:px-0">
                 <div className="flex w-full items-center space-x-2.5">
                   <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Win Wallet
+                    Room Id
                   </span>
                   <span>
                     <svg
@@ -423,7 +365,7 @@ function PlayerTab({ }) {
               <td className="w-[165px] px-6 py-5 xl:px-0">
                 <div className="flex w-full items-center space-x-2.5">
                   <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Bonus Wallet
+                    Amount
                   </span>
                   <span>
                     <svg
@@ -468,7 +410,7 @@ function PlayerTab({ }) {
               <td className="w-[165px] px-6 py-5 xl:px-0">
                 <div className="flex w-full items-center space-x-2.5">
                   <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Registration Date
+                    Type
                   </span>
                   <span>
                     <svg
@@ -513,7 +455,7 @@ function PlayerTab({ }) {
               <td className="w-[165px] px-6 py-5 xl:px-0">
                 <div className="flex w-full items-center space-x-2.5">
                   <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Last Login
+                    Club
                   </span>
                   <span>
                     <svg
@@ -555,136 +497,33 @@ function PlayerTab({ }) {
                   </span>
                 </div>
               </td>
-              <td className="w-[165px] px-6 py-5 xl:px-0">
-                <div className="flex w-full items-center space-x-2.5">
-                  <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    Status
-                  </span>
-                  <span>
-                    <svg
-                      width="14"
-                      height="15"
-                      viewBox="0 0 14 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.332 1.31567V13.3157"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M5.66602 11.3157L3.66602 13.3157L1.66602 11.3157"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3.66602 13.3157V1.31567"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12.332 3.31567L10.332 1.31567L8.33203 3.31567"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </td>
-              <td className="w-[165px] px-6 py-5 xl:px-0">
-                <div className="flex w-full items-center space-x-2.5">
-                  <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
-                  Action
-                  </span>
-                  <span>
-                    <svg
-                      width="14"
-                      height="15"
-                      viewBox="0 0 14 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.332 1.31567V13.3157"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M5.66602 11.3157L3.66602 13.3157L1.66602 11.3157"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3.66602 13.3157V1.31567"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12.332 3.31567L10.332 1.31567L8.33203 3.31567"
-                        stroke="#718096"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </td>
+              
             </tr>
-            {usersOnCurrentPage?.map((user, index) =>
+            {filteredUsers?.map((user, index) =>
               pageSize
                 ? index + 1 <= pageSize && (
                   <CustomerInfo
                     key={user._id}
-                    UserId={user._id}
-                    UserName={user.username}
-                    MobileNo={user.mobileNumber}
-                    aviatorGamePlay={user.counters.totalMatch}
-                    blackandwhiteGamePlay={user.counters.totalMatch}
-                    MainWallet={user.chips}
-                    WinWallet={user.winningChips}
-                    BonusWallet={user.chips}
-                    RegistrationDate={user.createdAt}
-                    LastLogin={user.lastLoginDate}
-                    status={user.status ? 'Blocked' : 'Active'}
-                    profileUrl={user.profileUrl}
-                    email={user.email}
-                    uniqueId={user.uniqueId}
+                    datetime={user.DateTime}
+                    UserName={user.Name}
+                    MobileNo={user.PhoneNumber}
+                    roomid={user.RoomId}
+                    amount={user.Amount}
+                    type={user.Type}
+                    club={user.Club}
 
                   />
                 )
                 : index < 3 && (
                   <CustomerInfo
                     key={user._id}
-                    UserId={user._id}
-                    UserName={user.username}
-                    MobileNo={user.mobileNumber}
-                    aviatorGamePlay={user.counters.totalMatch}
-                    blackandwhiteGamePlay={user.counters.totalMatch}
-                    MainWallet={user.chips}
-                    WinWallet={user.winningChips}
-                    BonusWallet={user.chips}
-                    RegistrationDate={user.createdAt}
-                    LastLogin={user.lastLoginDate}
-                    status={user.status ? 'Blocked' : 'Active'}
-                    profileUrl={user.profileUrl}
-                    email={user.email}
-                    uniqueId={user.uniqueId}
+                    datetime={user.DateTime}
+                    UserName={user.Name}
+                    MobileNo={user.PhoneNumber}
+                    roomid={user.RoomId}
+                    amount={user.Amount}
+                    type={user.Type}
+                    club={user.Club}
                   />
                 )
             )}

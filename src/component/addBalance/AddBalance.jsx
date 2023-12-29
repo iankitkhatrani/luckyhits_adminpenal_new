@@ -9,7 +9,7 @@ function AddBalance() {
           Total Balance
         </h3>
         <h2 className="text-4xl font-bold font-poppins text-bgray-900 dark:text-white mb-2">
-          $88,232.00{" "}
+          ₹88,232.00{" "}
           <span className="text-base font-medium uppercase text-bgray-500">
             USD
           </span>

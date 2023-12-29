@@ -40,8 +40,9 @@ import NotificationList from './pages/Notification'
 import BannerList from './pages/Banner'
 import Botadd from './pages/Botadd'
 import PlayerAdd from './pages/Playeradd'
-
-
+import Mail from './pages/Mail'
+import Playeredit from './pages/PlayerUpdate'
+import CoinManagement from './pages/CoinManagement'
 
 
 
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
         element: <PlayerAdd />,
       },
       {
+        path: "/playeredit",
+        element: <Playeredit />,
+      },
+      {
         path: "/depositList",
         element: <Deposit />,
       },
@@ -100,12 +105,20 @@ const router = createBrowserRouter([
         element: <PayoutPendding />,
       },
       {
+        path: "/coinmanagement",
+        element: <CoinManagement />,
+      },
+      {
         path: "/socialurl",
         element: <SocialURL />,
       },
       {
         path: "/noticetext",
         element: <NoitceText />,
+      },
+      {
+        path: "/mail",
+        element: <Mail />,
       },
       {
         path: "/notificationlist",
