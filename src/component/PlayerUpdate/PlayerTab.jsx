@@ -510,7 +510,7 @@ function PlayerTab({ UserId, gameName }) {
                     roomid={user.RoomId}
                     amount={user.Amount}
                     type={user.Type}
-                    club={user.Club}
+                    club={user.game}
 
                   />
                 )
@@ -523,7 +523,7 @@ function PlayerTab({ UserId, gameName }) {
                     roomid={user.RoomId}
                     amount={user.Amount}
                     type={user.Type}
-                    club={user.Club}
+                    club={user.game}
                   />
                 )
             )}
