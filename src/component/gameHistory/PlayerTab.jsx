@@ -151,14 +151,7 @@ function PlayerTab({ gameName }) {
       <table className="w-full">
         <tbody>
           <tr className="border-b border-bgray-300 dark:border-darkblack-400">
-            <td className="">
-              <label className="text-center">
-                <input
-                  type="checkbox"
-                  className="h-5 w-5 cursor-pointer rounded-full border border-bgray-400 bg-transparent text-success-300 focus:outline-none focus:ring-0"
-                />
-              </label>
-            </td>
+            
             <td className="inline-block w-[250px] px-6 py-5 lg:w-auto xl:px-0">
               <div className="flex w-full items-center space-x-2.5">
                 <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
@@ -521,7 +514,7 @@ function PlayerTab({ gameName }) {
             className="flex items-center space-x-6 rounded-lg border border-bgray-300 px-2.5 py-[14px] dark:border-darkblack-400"
           >
             <span className="text-sm font-semibold text-bgray-900 dark:text-bgray-50">
-              5
+            {pageSize}
             </span>
             <span>
               <svg

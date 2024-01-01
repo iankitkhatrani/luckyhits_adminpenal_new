@@ -82,6 +82,7 @@ function PlayerTab({ UserId, gameName }) {
   const totalPages = Math.ceil(filteredUsers.length / pageSize);
 
   const goToPage = (page) => {
+    console.log("usersOnCurrentPage ",page)
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
@@ -437,7 +438,7 @@ function PlayerTab({ UserId, gameName }) {
            
               
             </tr>
-            {filteredUsers?.map((user, index) =>
+            {usersOnCurrentPage?.map((user, index) =>
               pageSize
                 ? index + 1 <= pageSize && (
                   <CustomerInfo
@@ -481,7 +482,7 @@ function PlayerTab({ UserId, gameName }) {
                 className="flex items-center space-x-6 rounded-lg border border-bgray-300 px-2.5 py-[14px] dark:border-darkblack-400"
               >
                 <span className="text-sm font-semibold text-bgray-900 dark:text-bgray-50">
-                  5
+                {pageSize}
                 </span>
                 <span>
                   <svg
