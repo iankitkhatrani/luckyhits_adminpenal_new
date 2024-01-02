@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 
 function gameLogic(gameName) {
 
-  const [selectedMode, setSelectedMode] = useState('Client');
+  const [selectedMode, setSelectedMode] = useState("");
 
   const handleModeChange = (event) => {
 
@@ -13,7 +13,18 @@ function gameLogic(gameName) {
 
   const context = useContext(offerContext)
 
-  const { GameLogicSet } = context
+  const { GameLogicSet,GetGameLogic } = context
+
+  useEffect( () => {
+    console.log("HELO LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL",gameName.gameName)
+    const submitdata = async () => {
+      
+
+      setSelectedMode(await GetGameLogic(gameName.gameName))
+      
+  }
+  submitdata()
+  },[gameName.gameName]);
 
   const handleSubmit = async () => {
    let res = await  GameLogicSet({
