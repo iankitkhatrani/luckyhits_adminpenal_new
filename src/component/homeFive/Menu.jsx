@@ -1,5 +1,5 @@
 import React from "react";
-import logoBlack from "../../assets/images/logo/logoBlack.svg";
+import logoBlack from "../../assets/images/logo/logoBlack.png";
 import chevronDown from "../../assets/images/icon/chevron-down.svg";
 import { Link } from "react-router-dom";
 

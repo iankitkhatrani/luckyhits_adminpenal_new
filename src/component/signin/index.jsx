@@ -1,5 +1,5 @@
-import logoColor from "../../assets/images/logo/logo-color.svg";
-import logoWhite from "../../assets/images/logo/logo-white.svg";
+import logoColor from "../../assets/images/logo/logo-color.png";
+import logoWhite from "../../assets/images/logo/logo-white.png";
 import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
 import PasswordResetModal from "../modal/PasswordResetModal";

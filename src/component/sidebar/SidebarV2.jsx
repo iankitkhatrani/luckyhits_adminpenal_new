@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo/logo-short.svg";
-import logoW from "../../assets/images/logo/logo-short-white.svg";
+import logo from "../../assets/images/logo/logo-short.png";
+import logoW from "../../assets/images/logo/logo-short-white.png";
 
 function SidebarV2() {
   const { pathname: location } = useLocation();

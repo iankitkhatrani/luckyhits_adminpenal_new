@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logoBlack from "../../assets/images/logo/logoBlack.svg";
+import logoBlack from "../../assets/images/logo/logoBlack.png";
 import barIcon from "../../assets/images/icon/bars-solid.svg";
 import xmark from "../../assets/images/icon/xmark-solid.svg";
 import chvronDown from "../../assets/images/icon//chevron-down.svg";
