@@ -6,14 +6,13 @@ import PasswordResetModal from "../modal/PasswordResetModal";
 import { useState } from "react";
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
-const host = "http://192.168.0.203:2828"//"http://13.50.221.113:2828";//
+const host = "http://13.50.221.113:2828";//"http://192.168.0.203:2828"//
 
 
 function LeftSide() {
   const navigate = useNavigate();
 
-  console.log("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGLOOGGGGGGGGGGGGGGGGGGGGGGGGr ")
-
+  
 
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState("");
