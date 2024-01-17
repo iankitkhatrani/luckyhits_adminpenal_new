@@ -55,7 +55,7 @@ function PlayerInfo({ UserId,name,email,mobileno,dateOfdeposit,screenshort,depos
       </td>
       <td className="px-6 py-5 xl:px-0">
         <p className="text-base font-medium text-bgray-900 dark:text-white">
-        ${depositamount}
+        ₹{depositamount} 
         </p>
       </td>
       <td className="px-6 py-5 xl:px-0">

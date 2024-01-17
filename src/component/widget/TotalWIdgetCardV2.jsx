@@ -104,7 +104,7 @@ function TotalWIdgetCardV2({ logo, activeMember }) {
       <div className="flex justify-between items-end">
         <div className="flex-1">
           <p className="text-bgray-900 font-bold text-3xl leading-[48px] dark:text-white">
-            $7,245.00
+          ₹7,245.00
           </p>
           <div className="flex items-center space-x-1">
             <span>

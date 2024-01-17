@@ -58,7 +58,7 @@ function Efficiency({ width, height }) {
               <div>
                 <div className="flex items-center space-x-[2px]">
                   <p className="text-lg font-bold text-bgray-900 dark:text-white">
-                    $6,230
+                  ₹6,230
                   </p>
                   <span>
                     <svg

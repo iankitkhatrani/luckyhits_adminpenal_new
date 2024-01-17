@@ -690,7 +690,7 @@ function PlayerTab({  status}) {
                 </span>
               </div>
             </td>
-            <td className="w-[165px] px-6 py-5 xl:px-0">
+            {status == "Pendding" ? <td className="w-[165px] px-6 py-5 xl:px-0">
               <div className="flex w-full items-center space-x-2.5">
                 <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
                   Approve
@@ -734,9 +734,9 @@ function PlayerTab({  status}) {
                   </svg>
                 </span>
               </div>
-            </td>
+            </td> : ""}
 
-            <td className="w-[165px] px-6 py-5 xl:px-0">
+            {status == "Pendding" ? <td className="w-[165px] px-6 py-5 xl:px-0">
               <div className="flex w-full items-center space-x-2.5">
                 <span className="text-base font-medium text-bgray-600 dark:text-bgray-50">
                   Rejected
@@ -780,7 +780,7 @@ function PlayerTab({  status}) {
                   </svg>
                 </span>
               </div>
-            </td>
+            </td> : ""}
 
 
             <td className="px-6 py-5 xl:px-0"></td>

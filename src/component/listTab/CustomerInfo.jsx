@@ -37,7 +37,7 @@ function CustomerInfo({ img, name, email, location, spent }) {
       </td>
       <td className="w-[165px] px-6 py-5 xl:px-0">
         <p className="text-base font-semibold text-bgray-900 dark:text-white">
-          ${spent}
+        ₹{spent}
         </p>
       </td>
       <td className="px-6 py-5 xl:px-0">

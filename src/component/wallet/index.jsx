@@ -53,7 +53,7 @@ function Wallet() {
           </p>
           <div className="flex h-[35px] w-full items-center justify-between">
             <span className="text-2xl font-bold text-bgray-900 dark:text-white">
-              $
+             ₹
             </span>
             <label className="w-full">
               <input

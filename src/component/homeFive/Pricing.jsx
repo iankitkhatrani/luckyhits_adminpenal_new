@@ -68,7 +68,7 @@ function Pricing() {
               <hr className="bg-[#E7E5EA] opacity-10" />
               <div className="flex flex-col pb-6 pt-3">
                 <span className="text-white text-center xl:text-5xl text-3xl font-bold leading-[116,667%] tracking-[-2px]">
-                  $12.00
+                  ₹12.00
                 </span>
                 <span className="text-secondary-200 xl:text-lg text-base font-medium leading-150 tracking-40">
                   License
@@ -135,7 +135,7 @@ function Pricing() {
               <hr className="bg-secondary-300" />
               <div className="flex flex-col pb-6 pt-3">
                 <span className="text-basicSecondary text-center xl:text-5xl text-3xl font-bold leading-[116,667%] tracking-[-2px]">
-                  $12.00
+                ₹12.00
                 </span>
                 <span className="text-basicSecondary xl:text-lg text-base font-medium leading-150 tracking-40">
                   License
