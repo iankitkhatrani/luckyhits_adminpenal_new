@@ -46,7 +46,9 @@ function gameLogic(gameName) {
             <div className="flex items-center space-x-[7px]">
               <div className="icon">
                 <span>
-                <label style={{"color":"white"}} htmlFor="noOneWillWin">No One Will Win</label>
+                <p className="text-1xl font-bold leading-[48px] text-bgray-900 dark:text-white">
+                Client Will Win
+                </p>
                 </span>
               </div>
               <span className="text-lg font-semibold text-bgray-900 dark:text-white">
@@ -68,7 +70,9 @@ function gameLogic(gameName) {
             <div className="flex items-center space-x-[7px]">
               <div className="icon">
                 <span>
-                <label style={{"color":"white"}} htmlFor="List Will Win">latest Amount Will Win</label>
+                <p className="text-1xl font-bold leading-[48px] text-bgray-900 dark:text-white">
+                User Will Win
+                </p>
                 </span>
               </div>
               <span className="text-lg font-semibold text-bgray-900 dark:text-white">
@@ -85,27 +89,7 @@ function gameLogic(gameName) {
           </div>
         </div>
 
-        <div className="rounded-lg bg-white p-5 dark:bg-darkblack-600">
-          <div className="mb-5 flex items-center justify-between">
-            <div className="flex items-center space-x-[7px]">
-              <div className="icon">
-                <span>
-                <label style={{"color":"white"}} htmlFor="normalgame">Normal Games</label>
-                </span>
-              </div>
-              <span className="text-lg font-semibold text-bgray-900 dark:text-white">
-              <input
-                  type="radio"
-                  id="normalgame"
-                  name="gameMode"
-                  value="Normal"
-                  checked={selectedMode === 'Normal'}
-                  onChange={handleModeChange}
-                />
-              </span>
-            </div>
-          </div>
-        </div>
+       
 
         <div className="rounded-lg  p-5 ">  
         </div>
@@ -135,6 +119,27 @@ function gameLogic(gameName) {
 export default gameLogic;
 
 
+ // <div className="rounded-lg bg-white p-5 dark:bg-darkblack-600">
+        //   <div className="mb-5 flex items-center justify-between">
+        //     <div className="flex items-center space-x-[7px]">
+        //       <div className="icon">
+        //         <span>
+        //         <label style={{"color":"white"}} htmlFor="normalgame">Normal Games</label>
+        //         </span>
+        //       </div>
+        //       <span className="text-lg font-semibold text-bgray-900 dark:text-white">
+        //       <input
+        //           type="radio"
+        //           id="normalgame"
+        //           name="gameMode"
+        //           value="Normal"
+        //           checked={selectedMode === 'Normal'}
+        //           onChange={handleModeChange}
+        //         />
+        //       </span>
+        //     </div>
+        //   </div>
+        // </div>
           
           
 
