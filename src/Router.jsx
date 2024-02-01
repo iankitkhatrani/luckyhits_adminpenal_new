@@ -43,6 +43,8 @@ import PlayerAdd from './pages/Playeradd'
 import Mail from './pages/Mail'
 import Playeredit from './pages/PlayerUpdate'
 import CoinManagement from './pages/CoinManagement'
+import Chnagepwd from './pages/Chnagepwd'
+
 
 
 
@@ -127,6 +129,10 @@ const router = createBrowserRouter([
       {
         path: "/bannerlist",
         element: <BannerList />,
+      },
+      {
+        path: "/security",
+        element: <Chnagepwd />,
       },
       {
         path: "/settings",

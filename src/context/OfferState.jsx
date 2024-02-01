@@ -1748,6 +1748,39 @@ const OfferState = (props) => {
     }
 
     //=================================
+
+
+    const Chnageidpwd = async (data) => {
+        try {
+            console.log("PlayerList :::::::", host)
+            console.log("PlayerList ::::::: data ", data)
+
+            const response = await fetch(`${host}/admin/signup-admin-update`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'token': cookies.get('token')
+                },
+                body: JSON.stringify(data)
+            }).then(d => d.json())
+
+            const json = response
+            console.log("data api from :latatestUser :::...", json)
+
+            if (json.message != undefined && (json.message == "jwt expired" || json.message == "Unauthorized access")) {
+                LogoutClick()
+
+                return json
+            } else {
+                return await json
+            }
+
+        } catch (e) {
+            console.log("e :", e)
+        }
+    }
+
     return (
         <offerContext.Provider value={{
             host,
@@ -1764,7 +1797,8 @@ const OfferState = (props) => {
             BotList, BotAdd, BotDelete, BotData, UploadProfile, BotUpdate,
             AddMoney, DeductMoney, LogoutClick,
             DepositeList, DepositeAccptedList, DepositeRejectedList, DepositeAdd, UploadScreenshort, DepositeDelete, DepositeData, DepositeUpdate,
-            PayoutList, PayoutAccptedList, PayoutRejectedList, PayoutUpdate, UploadScreenshortPayout
+            PayoutList, PayoutAccptedList, PayoutRejectedList, PayoutUpdate, UploadScreenshortPayout,
+            Chnageidpwd
         }}>
             {props.children}
         </offerContext.Provider>)
