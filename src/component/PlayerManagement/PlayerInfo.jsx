@@ -1,6 +1,9 @@
 import ProtoTypes from "prop-types";
 import { useNavigate } from 'react-router-dom';
 
+import edit from "../../assets/images/edit.png";
+import trash from "../../assets/images/trash.png";
+
 function PlayerInfo({ UserId, UserName, MobileNo, aviatorGamePlay, blackandwhiteGamePlay, MainWallet, WinWallet, BonusWallet, RegistrationDate, LastLogin,  status, profileUrl,email,uniqueId }) {
 
   const navigate = useNavigate();
@@ -75,7 +78,7 @@ function PlayerInfo({ UserId, UserName, MobileNo, aviatorGamePlay, blackandwhite
             "cursor": "pointer",
             "border-radius": "4px"
           }} onClick={() => navigateToContacts( UserId, UserName, MobileNo, aviatorGamePlay, blackandwhiteGamePlay, MainWallet, WinWallet, BonusWallet, RegistrationDate, LastLogin, status, profileUrl ,email,uniqueId)} >
-          <img style={{"width": "30px","height": "30px","margin": "10px"}} src="./src/assets/images/edit.png" />
+          <img style={{"width": "30px","height": "30px","margin": "10px"}} src={edit} />
           </button>
 
           <button styles={{
@@ -87,7 +90,7 @@ function PlayerInfo({ UserId, UserName, MobileNo, aviatorGamePlay, blackandwhite
             "cursor": "pointer",
             "border-radius": "4px"
           }} onClick={() => DeleteUser(UserId)} >
-          <img style={{"width": "30px","height": "30px","margin": "10px"}} src="./src/assets/images/trash.png" />
+          <img style={{"width": "30px","height": "30px","margin": "10px"}} src={trash} />
           </button>
         </div>
       </td>
