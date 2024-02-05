@@ -75,7 +75,7 @@ function PlayerInfo({ UserId, UserName, MobileNo, aviatorGamePlay, blackandwhite
             "cursor": "pointer",
             "border-radius": "4px"
           }} onClick={() => navigateToContacts( UserId, UserName, MobileNo, aviatorGamePlay, blackandwhiteGamePlay, MainWallet, WinWallet, BonusWallet, RegistrationDate, LastLogin, status, profileUrl ,email,uniqueId)} >
-            <img style={{ "width": "15px", "height": "15px", "margin": "10px" }} src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png" />
+          <img style={{"width": "30px","height": "30px","margin": "10px"}} src="./src/assets/images/edit.png" />
           </button>
 
           <button styles={{
@@ -87,8 +87,7 @@ function PlayerInfo({ UserId, UserName, MobileNo, aviatorGamePlay, blackandwhite
             "cursor": "pointer",
             "border-radius": "4px"
           }} onClick={() => DeleteUser(UserId)} >
-            <img style={{ "width": "15px", "height": "15px", "margin": "10px" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewqWoGi9-fXmd6_SKqNkg6-kmo7VctpXAhgBiKaliSA&s" />
-
+          <img style={{"width": "30px","height": "30px","margin": "10px"}} src="./src/assets/images/trash.png" />
           </button>
         </div>
       </td>
