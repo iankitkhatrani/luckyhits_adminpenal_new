@@ -33,7 +33,7 @@ function App() {
     console.log("URL ",url)
 
     if(url[1] != "/signin"){
-      window.location.href =   'http://16.170.150.51:5173/signin'; //"http://192.168.0.203:5173/signin" //
+      window.location.href =   'http://luckyhits.in:5173/signin'; //"http://192.168.0.203:5173/signin" //
       
       return false
     }
