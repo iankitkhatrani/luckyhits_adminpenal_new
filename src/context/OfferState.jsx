@@ -20,7 +20,7 @@ const OfferState = (props) => {
 
 
     const LogoutClick = async () => {
-        console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+        
         setToken("")
         cookies.set('token', "");
         return false
