@@ -127,6 +127,7 @@ function PlayerTab({ }) {
             value={fromDate}
             onChange={(e) => setFromDate(e.target.value)}
           />
+          <p className="text-1xl font-bold leading-[48px] text-bgray-900 dark:text-white">Date :</p>
           <input
             type="date"
             placeholder="To Date"
@@ -374,7 +375,7 @@ function PlayerTab({ }) {
             
             <td className="px-6 py-5 xl:px-0"></td>
           </tr>
-          {filteredUsers?.map((user, index) =>
+          {usersOnCurrentPage?.map((user, index) =>
             pageSize
               ? index + 1 <= pageSize && (
                   <CustomerInfo

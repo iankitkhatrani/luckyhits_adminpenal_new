@@ -78,7 +78,7 @@ function PlayerInfo({ UserId, UserName, MobileNo, aviatorGamePlay, blackandwhite
             "cursor": "pointer",
             "border-radius": "4px"
           }} onClick={() => navigateToContacts( UserId, UserName, MobileNo, aviatorGamePlay, blackandwhiteGamePlay, MainWallet, WinWallet, BonusWallet, RegistrationDate, LastLogin, status, profileUrl ,email,uniqueId)} >
-          <img style={{"width": "30px","height": "30px","margin": "10px"}} src={edit} />
+          <img style={{"width": "30px","height": "30px","margin": "30px"}} src={edit} />
           </button>
 
           <button styles={{
@@ -90,7 +90,7 @@ function PlayerInfo({ UserId, UserName, MobileNo, aviatorGamePlay, blackandwhite
             "cursor": "pointer",
             "border-radius": "4px"
           }} onClick={() => DeleteUser(UserId)} >
-          <img style={{"width": "30px","height": "30px","margin": "10px"}} src={trash} />
+          <img style={{"width": "30px","height": "30px","margin": "30px"}} src={trash} />
           </button>
         </div>
       </td>
